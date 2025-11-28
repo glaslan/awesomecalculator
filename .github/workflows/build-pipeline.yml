@@ -48,6 +48,7 @@ jobs:
       with:
         name: awesome-calculator
         path: src/dist
+        
   install-artifact:
     name: Installing Package
     runs-on: ubuntu-latest
@@ -64,11 +65,11 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: awesome-calculator
+          path: src/dist
       - name: Install package
         run: |
           python -m pip install --upgrade pip
-          python -m pip install dist/*.whl
+          python -m pip install src/dist/*.whl
 
 
